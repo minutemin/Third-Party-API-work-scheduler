@@ -15,7 +15,9 @@ function setHourColors() {
             $("#hour-" + i + " textarea").addClass("past");
         } else if (i == now.hour()) {
             $("#hour-" + i + " textarea").addClass("present");
-        } 
+        } else {
+            $("#hour-" + i + " textarea").addClass("future");
+        }
         }
     }
 
