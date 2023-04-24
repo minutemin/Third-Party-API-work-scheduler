@@ -1,42 +1,52 @@
 
-// $(document).ready(function () {
-//     loadStorageData();
+/* jQuery alternative all in function:  $(document).ready(function () {
+   loadStorageData();  */
     
-//  })
+//set current date and time on the banner
+$('#currentDay').text(dayjs().format('[Today\'s Date: ]dddd, MMMM D, YYYY'));
 
+// set colors for time in past, present and future. 
 function setHourColors() {
     var now = dayjs();
 
-    for (var i = 9; i < 18; i++) {
-        // $("#hour-" + i + "textarea").removeClass("future");
+    for (var i = 15; i < 24; i++) {
+        //$("#hour-" + i + "textarea").removeClass("future");
         if (i < now.hour()) {
             $("#hour-" + i + " textarea").addClass("past");
         } else if (i == now.hour()) {
             $("#hour-" + i + " textarea").addClass("present");
-        } else {
-            $("#hour-" + i + "textarea").removeClass("future");
+        } 
         }
     }
-}
+
 setHourColors();
 
 function loadStorageData() {
     eventsData = JSON.parse(localStorage.getItem("calendarEvents"));
     if (!eventsData) {
         eventsData = {
-            hour9: "",
-            hour11: "",
-            hour10: "",
-            hour11: "",
-            hour12: "",
-            hour13: "",
-            hour14: "",
             hour15: "",
             hour16: "",
             hour17: "",
+            hour18: "",
+            hour19: "",
+            hour20: "",
+            hour21: "",
+            hour22: "",
+            hour23: "",
+            hour24: "",
         }
-    }   
-    $("#hour-10 .item").val(localStorage.getItem("hour-10"));
+    }   //get any info from local storage
+    $("#hour-15 .item").val(localStorage.getItem("hour-15"));
+    $("#hour-16 .item").val(localStorage.getItem("hour-16"));
+    $("#hour-17 .item").val(localStorage.getItem("hour-17"));
+    $("#hour-18 .item").val(localStorage.getItem("hour-18"));
+    $("#hour-19 .item").val(localStorage.getItem("hour-19"));
+    $("#hour-20 .item").val(localStorage.getItem("hour-20"));
+    $("#hour-21 .item").val(localStorage.getItem("hour-21"));
+    $("#hour-22 .item").val(localStorage.getItem("hour-22"));
+    $("#hour-23 .item").val(localStorage.getItem("hour-23"));
+  
 }
 
 
@@ -62,4 +72,4 @@ $(".saveBtn").on("click", handleSaveClick);
 $(function() {
     loadStorageData();
     setHourColors();
-}) 
+});
