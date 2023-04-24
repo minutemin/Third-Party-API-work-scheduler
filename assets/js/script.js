@@ -20,7 +20,7 @@ function setHourColors() {
     }
 
 setHourColors();
-
+// load saved data in the local storage from calendar events to time-block if there is any
 function loadStorageData() {
     eventsData = JSON.parse(localStorage.getItem("calendarEvents"));
     if (!eventsData) {
