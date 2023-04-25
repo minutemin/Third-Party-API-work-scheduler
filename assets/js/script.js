@@ -3,7 +3,7 @@
    loadStorageData();  */
     
 //set current date and time on the banner
-$('#currentDay').text(dayjs().format('[Today\'s Date: ]dddd, MMMM D, YYYY'));
+$('#currentDay').text(dayjs().format('[Today\'s Date and Time: ]dddd, MMMM D, YYYY - hh:mma'));
 
 // set colors for time in past, present and future. 
 function setHourColors() {
