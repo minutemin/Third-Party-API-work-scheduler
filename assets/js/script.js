@@ -1,7 +1,7 @@
 
 /* jQuery alternative all in function:  $(document).ready(function () {
    loadStorageData();  */
-    
+
 //set current date and time on the banner
 $('#currentDay').text(dayjs().format('[Today\'s Date and Time: ]dddd, MMMM D, YYYY - hh:mma'));
 
@@ -18,8 +18,8 @@ function setHourColors() {
         } else {
             $("#hour-" + i + " textarea").addClass("future");
         }
-        }
     }
+}
 
 setHourColors();
 // load saved data in the local storage from calendar events to time-block if there is any
@@ -38,20 +38,18 @@ function loadStorageData() {
             hour23: "",
             hour24: "",
         }
-    }   //get any info from local storage
-    $("#hour-15 .item").val(localStorage.getItem("hour-15"));
-    $("#hour-16 .item").val(localStorage.getItem("hour-16"));
-    $("#hour-17 .item").val(localStorage.getItem("hour-17"));
-    $("#hour-18 .item").val(localStorage.getItem("hour-18"));
-    $("#hour-19 .item").val(localStorage.getItem("hour-19"));
-    $("#hour-20 .item").val(localStorage.getItem("hour-20"));
-    $("#hour-21 .item").val(localStorage.getItem("hour-21"));
-    $("#hour-22 .item").val(localStorage.getItem("hour-22"));
-    $("#hour-23 .item").val(localStorage.getItem("hour-23"));
-  
+    }
+    console.log(localStorage.getItem("hour15"));  //get any info from local storage
+    $("#hour-15 .item").val(eventsData.hour15);
+    $("#hour-16 .item").val(eventsData.hour16);
+    $("#hour-17 .item").val(eventsData.hour17);
+    $("#hour-18 .item").val(eventsData.hour18);
+    $("#hour-19 .item").val(eventsData.hour19);
+    $("#hour-20 .item").val(eventsData.hour20);
+    $("#hour-21 .item").val(eventsData.hour21);
+    $("#hour-22 .item").val(eventsData.hour22);
+    $("#hour-23 .item").val(eventsData.hour23);
 }
-
-
 
 function handleSaveClick(event) {
     //grab data from html
@@ -61,7 +59,7 @@ function handleSaveClick(event) {
 
     //localStorage.setItem("hour", hour);
     //localStorage.setItem(hour, value);
-    
+
     //modify our data object
     eventsData["hour" + hour] = value;
 
