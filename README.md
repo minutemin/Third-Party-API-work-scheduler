@@ -2,9 +2,10 @@
 Third Party API Challenge - work scheduler
 
 Git Hub: https://github.com/minutemin/homework-05-work-scheduler
+
 Git Pages: https://minutemin.github.io/homework-05-work-scheduler/
 
-![screen shot of portfolio](assets/homework05WorkScheduler.png)
+![screen shot of portfolio](assets/images/homework05WorkScheduler.png)
 
 ## Description ##
 
