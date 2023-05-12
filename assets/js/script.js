@@ -26,22 +26,24 @@ $(document).ready(function () {
     // load saved data in the local storage from calendar events to time-block if there is any
     function loadStorageData() {
         eventsData = JSON.parse(localStorage.getItem("calendarEvents"));
-        if (!eventsData) {
-            eventsData = {
-                hour15: "",
-                hour16: "",
-                hour17: "",
-                hour18: "",
-                hour19: "",
-                hour20: "",
-                hour21: "",
-                hour22: "",
-                hour23: "",
-                hour24: "",
-            }
-        }
-        //get any info from local storage
-        console.log(localStorage.getItem("hour15"));  
+        console.log(eventsData);
+        //         if (!eventsData) {
+        //     eventsData = {
+        //         hour15: "",
+        //         hour16: "",
+        //         hour17: "",
+        //         hour18: "",
+        //         hour19: "",
+        //         hour20: "",
+        //         hour21: "",
+        //         hour22: "",
+        //         hour23: "",
+        //         hour24: "",
+        //     }
+        // }
+        // //get any info from local storage
+        console.log(localStorage.getItem("hour15")); 
+        console.log($('#hour-15 .item')); 
         $("#hour-15 .item").val(eventsData.hour15);
         $("#hour-16 .item").val(eventsData.hour16);
         $("#hour-17 .item").val(eventsData.hour17);
@@ -56,22 +58,28 @@ $(document).ready(function () {
     // function for saving the string into local storage as a JSON strink calendar events
     function handleSaveClick(event) {
         //grab data from html
+        console.log(event.target);
         var hourBlock = $(event.target).parent();
+        console.log(hourBlock);
         var value = hourBlock.children("textarea").val();
-        var hour = hourBlock.attr("id").split("-")[1];
+        console.log(value);
+         var hour = hourBlock.attr("id").split("-")[1];
+      
+        console.log(hour);
 
         //localStorage.setItem("hour", hour);
         //localStorage.setItem(hour, value);
 
         //modify our data object
-        eventsData["hour" + hour] = value;
+       eventsData["hour" + hour] = value;
 
         //store in local Storage
         localStorage.setItem("calendarEvents", JSON.stringify(eventsData));
     }
     //call function on click save button.
+    
     $(".saveBtn").on("click", handleSaveClick);
-
+    $(".container").on("click", handleSaveClick); 
     //calls the load storage data and hours functions
     $(function () {
         loadStorageData();
