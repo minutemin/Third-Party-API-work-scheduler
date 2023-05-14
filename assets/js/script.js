@@ -60,6 +60,9 @@ $(document).ready(function () {
         //grab data from html
         console.log(event.target);
         var hourBlock = $(event.target).parent();
+        if ($(event.target).hasClass("fas")) {
+            hourBlock = hourBlock.parent();
+        }
         console.log(hourBlock);
         var value = hourBlock.children("textarea").val();
         console.log(value);
